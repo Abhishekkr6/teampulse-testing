@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Color Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 32px;
+      background: #0b1320;
+      color: #f5f7fb;
+    }
+    h1 {
+      margin-bottom: 16px;
+    }
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 8px;
+    }
+    .cell {
+      padding: 24px;
+      text-align: center;
+      border-radius: 8px;
+      color: #0b1320;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+    button {
+      margin-bottom: 16px;
+      padding: 10px 16px;
+      background: #3ba6ff;
+      color: #0b1320;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1f8ad6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Color Grid</h1>
+  <button id="regen">Regenerate Colors</button>
+  <div id="grid"></div>
+
+  <script>
+    function randomColor() {
+      return "#" + Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, "0");
+    }
+
+    function renderGrid(size = 20) {
+      const grid = document.getElementById("grid");
+      grid.innerHTML = "";
+      for (let i = 0; i < size; i++) {
+        const div = document.createElement("div");
+        const color = randomColor();
+        div.className = "cell";
+        div.textContent = color;
+        div.style.background = color;
+        grid.appendChild(div);
+      }
+    }
+
+    document.getElementById("regen").addEventListener("click", () => renderGrid());
+    renderGrid();
+  </script>
+</body>
+</html>
+
+
