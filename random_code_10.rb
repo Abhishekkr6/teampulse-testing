@@ -16,3 +16,4 @@ end
 timestamp = Time.now.strftime("%Y-%m-%d %H:%M:%S")
 puts "\nGenerated at: #{timestamp}"
 
+
