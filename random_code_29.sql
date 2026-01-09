@@ -24,3 +24,4 @@ FROM generate_series(1, 5);
 -- Display timestamp
 SELECT 'Generated at: ' || to_char(now(), 'YYYY-MM-DD HH24:MI:SS') AS timestamp;
 
+

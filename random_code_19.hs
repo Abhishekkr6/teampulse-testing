@@ -22,3 +22,4 @@ main = do
     let timestamp = formatTime defaultTimeLocale "%Y-%m-%d %H:%M:%S" now
     putStrLn $ "\nGenerated at: " ++ timestamp
 
+

@@ -35,3 +35,4 @@ pub fn main() !void {
     try stdout.print("\nGenerated at: {s}\n", .{formatted});
 }
 
+
