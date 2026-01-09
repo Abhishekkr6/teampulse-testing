@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Random Emoji Rain</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #1b2845, #050812);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #f5f7ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 24px;
+    }
+    h1 { margin: 0 0 8px; }
+    p { margin: 0 0 16px; opacity: 0.8; font-size: 14px; }
+    #stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .drop {
+      position: absolute;
+      font-size: 32px;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      from { transform: translateY(-10vh); opacity: 1; }
+      to   { transform: translateY(110vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Emoji Rain</h1>
+  <p>Leave this tab open and watch random emojis fall.</p>
+  <div id="stage"></div>
+
+  <script>
+    const EMOJIS = ["😀","🚀","✨","🎲","🎧","💻","🧠","🎯","🔥","🌈","🍀","⭐"];
+    const stage = document.getElementById("stage");
+
+    function spawnDrop() {
+      const span = document.createElement("span");
+      span.className = "drop";
+      span.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+      const size = 24 + Math.random() * 24;
+      span.style.fontSize = size + "px";
+      span.style.left = Math.random() * 100 + "vw";
+      const duration = 4 + Math.random() * 4;
+      span.style.animationDuration = duration + "s";
+      stage.appendChild(span);
+      span.addEventListener("animationend", () => span.remove());
+    }
+
+    setInterval(spawnDrop, 200);
+  </script>
+</body>
+</html>
+
+
