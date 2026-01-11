@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            max-width: 600px;
+            text-align: center;
+        }
+        #quote {
+            font-size: 24px;
+            line-height: 1.6;
+            color: #333;
+            margin: 30px 0;
+            font-style: italic;
+        }
+        #author {
+            font-size: 18px;
+            color: #666;
+            margin-top: 20px;
+        }
+        button {
+            background: #2a5298;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        button:hover {
+            background: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Quote Generator</h1>
+        <div id="quote">Click the button to get a random quote!</div>
+        <div id="author"></div>
+        <button onclick="generateQuote()">New Quote</button>
+    </div>
+    <script>
+        const quotes = [
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+            { text: "Code is like humor. When you have to explain it, it's bad.", author: "Cory House" },
+            { text: "First, solve the problem. Then, write the code.", author: "John Johnson" },
+            { text: "Programs must be written for people to read, and only incidentally for machines to execute.", author: "Harold Abelson" },
+            { text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", author: "Martin Fowler" },
+            { text: "The best error message is the one that never shows up.", author: "Thomas Fuchs" }
+        ];
+
+        function generateQuote() {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quote').textContent = `"${randomQuote.text}"`;
+            document.getElementById('author').textContent = `— ${randomQuote.author}`;
+        }
+    </script>
+</body>
+</html>
+
