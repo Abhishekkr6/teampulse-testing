@@ -11,7 +11,11 @@ from typing import str
 
 
 class CriticalCommandInjectionVulnerable:
-    """Intentionally vulnerable class demonstrating command injection."""
+    """Intentionally vulnerable class demonstrating command injection.
+    
+    WARNING: This class is for educational/testing purposes only.
+    Do not use in production environments.
+    """
     
     def execute_user_command(self, user_input: str) -> str:
         """

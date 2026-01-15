@@ -85,10 +85,12 @@ ATTACK_PAYLOADS = [
     "' OR '1'='1",
     "admin' --",
     "' OR 1=1 --",
+    "admin' OR 'x'='x",
     
     # Data extraction
     "' UNION SELECT NULL, username, password FROM users --",
     "' UNION SELECT NULL, credit_card, cvv FROM accounts --",
+    "' UNION SELECT NULL, email, phone FROM customers --",
     
     # Database destruction
     "'; DROP TABLE users; --",

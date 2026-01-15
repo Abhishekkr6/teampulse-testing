@@ -77,9 +77,12 @@ class AuthenticationBypassVulnerable:
         """
         return {
             "min_length": 0,  # No minimum length
+            "max_length": 999,  # No maximum length
             "require_uppercase": False,
+            "require_lowercase": False,
             "require_numbers": False,
             "require_special": False,
+            "password_expiry_days": 999999,  # Never expires
         }
     
     def account_enumeration_vulnerability(self, username: str) -> str:
