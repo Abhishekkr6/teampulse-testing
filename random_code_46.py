@@ -64,3 +64,4 @@ elif correct >= total * 0.6:
 else:
     print("Keep practicing! 💪")
 
+
